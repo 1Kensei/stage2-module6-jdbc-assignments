@@ -32,10 +32,12 @@ public class CustomDataSource implements DataSource {
     public static CustomDataSource getInstance() {
         if(instance == null) {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("app");
-            instance = new CustomDataSource(resourceBundle.getString("postgres.driver"),
-                    resourceBundle.getString("postgres.url"),
+            instance = new CustomDataSource(
+                    resourceBundle.getString("postgres.driver"),
                     resourceBundle.getString("postgres.password"),
-                    resourceBundle.getString("postgres.name"));
+                    resourceBundle.getString("postgres.name"),
+                    resourceBundle.getString("postgres.url")
+            );
         }
         return instance;
     }
